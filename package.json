@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "Create a fully CRUD API and UI using MongoDB and QELOS Plugin-Play",
   "main": "src/index.ts",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/qelos-io/mongo-crud.git"
   },
-  "author": "",
+  "author": "David Meir-Levy",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/qelos-io/mongo-crud/issues"
