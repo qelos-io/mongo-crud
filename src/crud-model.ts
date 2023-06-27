@@ -1,6 +1,7 @@
 import {ObjectId} from 'mongodb';
 import {getCollection} from './db';
 import {createCrud, ResponseError} from '@qelos/plugin-play';
+import {ICrudOptions} from '@qelos/plugin-play/src/crud.types';
 
 export interface ResourceProperty<T = any> {
   public?: boolean;
@@ -14,6 +15,18 @@ export interface ResourceProperty<T = any> {
 
 // @ts-ignore
 export type ResourceSchema = Record<string, ResourceProperty>;
+
+export enum CrudScreen {
+  LIST = 'list',
+  EDIT = 'edit',
+  ADD = 'add',
+  VIEW = 'view',
+}
+
+export enum PreDesignedTemplate {
+  ROWS_LIST = 'rows-list',
+  BASIC_FORM = 'basic-form',
+}
 
 export function getPlural(word: string) {
   const lastChar = word[word.length - 1].toLowerCase();
@@ -37,7 +50,7 @@ export class CrudModel {
       display: {
         name: entityName,
       },
-      screens: {},
+      screens: {} as any,
       verify: async (req) => {
         if (!req.user) {
           throw new ResponseError('please register');
@@ -58,10 +71,10 @@ export class CrudModel {
     this._indexes.push({fields, unique});
   }
 
-  screen(forScreen: 'list' | 'edit' | 'add', use: 'rows-list' | 'basic-form', structure?: string) {
-    this._crudOptions.screens[forScreen] = {
+  screen(forScreen: CrudScreen, use: PreDesignedTemplate | false, structure?: string) {
+    this._crudOptions.screens[forScreen] = use && {
       use,
-      structure,
+      structure: typeof structure === 'string' ? structure.trim() : structure,
     }
   }
 
