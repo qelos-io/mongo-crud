@@ -43,12 +43,13 @@ task.schema({
 task.screen(
   'list',
   'rows-list',
-  `### [{{ row.title }}](edit)
+  `<h3>{{ row.title }}</h3>
 {{ row.content }}
 {{ row.isDone ? 'Done!' : 'Not done' }}
-:!:
-<button for="edit">Edit</button>
-<button for="remove">{{ $t('Remove') }}</button>`
+<actions>
+  <ql-button for="edit">Edit</ql-button>
+  <ql-button for="remove">Edit</ql-button>
+</actions>`
 )
 task.execute();
 

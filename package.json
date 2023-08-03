@@ -1,6 +1,6 @@
 {
   "name": "@qelos/mongo-crud",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Create a fully CRUD API and UI using MongoDB and QELOS Plugin-Play",
   "main": "src/index.ts",
   "publishConfig": {

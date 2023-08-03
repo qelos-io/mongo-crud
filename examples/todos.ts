@@ -6,13 +6,13 @@ const todo = new CrudModel('todo')
 const group = new CrudModel('group')
 
 const HTML_TODOS_STRUCTURE = `
-<h1>[{{ row.title }}](edit)</h1>
+<h1>{{ row.title }}</h1>
 <p>{{ row.content }}</p>
 <p>{{ row.isDone ? 'Done!' : 'Not done' }}</p>
-<action>
+<actions>
   <ql-button for="edit">Edit</ql-button>
   <ql-button for="remove">Edit</ql-button>
-</action>
+</actions>
 `
 
 todo.schema({

@@ -19,7 +19,7 @@ export type ResourceSchema = Record<string, ResourceProperty>;
 export enum CrudScreen {
   LIST = 'list',
   EDIT = 'edit',
-  ADD = 'add',
+  CREATE = 'create',
   VIEW = 'view',
 }
 
