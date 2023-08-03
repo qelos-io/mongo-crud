@@ -1,7 +1,6 @@
 import {ObjectId} from 'mongodb';
 import {getCollection} from './db';
 import {createCrud, ResponseError} from '@qelos/plugin-play';
-import {ICrudOptions} from '@qelos/plugin-play/src/crud.types';
 
 export interface ResourceProperty<T = any> {
   public?: boolean;
